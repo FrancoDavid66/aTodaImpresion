@@ -1,0 +1,15 @@
+{
+  "name": "A Toda Impresión",
+  "short_name": "A Toda Impresión",
+  "description": "Diseño gráfico e impresión a pedido en San Genaro, Santa Fe. Catálogo, precio por mayor y envíos a toda la zona.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF7FA",
+  "theme_color": "#E4007C",
+  "lang": "es-AR",
+  "icons": [
+    { "src": "/icono-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icono-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

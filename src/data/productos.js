@@ -1,0 +1,53 @@
+// =====================================================================
+//  CATÁLOGO (PRECIOS DE EJEMPLO — los define Zule)
+// ---------------------------------------------------------------------
+//  Cada producto es una ficha base; tamaño, color, etc. son opciones.
+//  foto:      clave de src/data/fotos.js   ·  ilus: dibujo propio si no hay foto
+//  ocasion:   claves de OCASIONES (negocio.js) · tipo: clave de TIPOS
+//  precios:   [[desde N unidades, precio por unidad], ...]
+//  opciones:  [nombre, [valores], {valor: precio fijo}?]   (si tiene precio fijo por valor, manda ese)
+//  tematica:  pide temática/colores al cliente · persona: muestra el personalizador de etiquetas
+//  disponible: ya está hecho (sale en "Disponible ya") · nuevo / top: etiquetas de la tarjeta
+//  temporadas: ['clases','padre','nino','madre','fin','navidad']
+//  minimo / unidad: opcionales (por defecto, la primera cantidad de precios y "c/u")
+// =====================================================================
+
+export const PRODUCTOS = [
+  { id: 'bolsitas', nombre: 'Bolsitas de cumple estampadas', ocasion: ['cumple'], tipo: 'textil', foto: 'bolsitas', desc: 'Bolsitas de tela con la temática y el nombre del cumpleañero. Ideales para las sorpresitas.', opciones: [['Tamaño', ['15 × 20 cm', '20 × 25 cm']]], precios: [[10, 1900], [20, 1700], [50, 1450]], tematica: true, top: true, temporadas: ['nino'] },
+  { id: 'remera-cumple', nombre: 'Remera de cumple con nombre', ocasion: ['cumple'], tipo: 'textil', foto: 'remera', desc: 'Estampado a todo color con la temática, la edad y el nombre.', opciones: [['Talle', ['2-4', '6-8', '10-12', 'S', 'M', 'L', 'XL']], ['Color', ['Blanca', 'Celeste', 'Rosa', 'Negra']]], precios: [[1, 14000], [5, 12500], [10, 11000]], tematica: true, top: true, temporadas: ['nino'] },
+  { id: 'topper', nombre: 'Topper para torta', ocasion: ['cumple', 'eventos'], tipo: 'deco', ilus: 'topper', desc: 'Toppers con número, nombre y personajes para decorar la torta.', opciones: [['Tamaño', ['Chico', 'Grande']]], precios: [[1, 4500]], tematica: true, nuevo: true },
+  { id: 'invitacion', nombre: 'Invitación digital', ocasion: ['cumple', 'eventos'], tipo: 'diseno', ilus: 'invitacion', desc: 'Invitación para mandar por WhatsApp con todos los datos del evento.', opciones: [['Formato', ['Imagen', 'Animada'], { Imagen: 6000, Animada: 9500 }]], precios: [[1, 6000]], tematica: true, top: true },
+  { id: 'banderin', nombre: 'Banderín con nombre', ocasion: ['cumple', 'eventos'], tipo: 'deco', ilus: 'banderin', desc: 'Guirnalda de banderines con el nombre o la frase que quieras.', opciones: [['Largo', ['1 m', '2 m', '3 m'], { '1 m': 7500, '2 m': 12500, '3 m': 17000 }]], precios: [[1, 7500]], tematica: true },
+  { id: 'stickers-sorpresa', nombre: 'Stickers para sorpresitas', ocasion: ['cumple'], tipo: 'stickers', foto: 'stickers', desc: 'Stickers troquelados con la temática del cumple para bolsitas y golosinas.', opciones: [['Tamaño', ['5 cm', '7 cm']]], precios: [[10, 350], [50, 280], [100, 220]], tematica: true, top: true, temporadas: ['nino'] },
+  { id: 'cajitas', nombre: 'Cajitas para souvenirs', ocasion: ['cumple', 'eventos'], tipo: 'papeleria', foto: 'revelacion', desc: 'Cajitas impresas para golosinas y souvenirs.', opciones: [['Modelo', ['Milk box', 'Pirámide', 'Bolsita de papel']]], precios: [[10, 1200], [30, 1000], [50, 850]], tematica: true },
+  { id: 'cartel-bienvenida', nombre: 'Cartel de bienvenida', ocasion: ['cumple', 'eventos'], tipo: 'deco', ilus: 'cartel', desc: 'Cartel impreso para recibir a los invitados o para la foto.', opciones: [['Tamaño', ['A3', 'A2', '60 × 90 cm'], { A3: 9000, A2: 14000, '60 × 90 cm': 22000 }]], precios: [[1, 9000]], tematica: true },
+  { id: 'revelacion', nombre: 'Cajita para revelación', ocasion: ['eventos'], tipo: 'papeleria', foto: 'revelacion', desc: 'Cajita impresa para la sorpresa de la revelación de género.', precios: [[1, 3500], [10, 2800]], tematica: true, disponible: true },
+  { id: 'stickers-madre', nombre: 'Stickers Día de la Madre', ocasion: ['fechas'], tipo: 'stickers', foto: 'stickers', desc: 'Stickers troquelados con frases, en varios modelos. Para regalitos y bolsitas.', precios: [[10, 300], [50, 250]], disponible: true, temporadas: ['madre'] },
+  { id: 'flores', nombre: 'Ramo de flores de tela', ocasion: ['fechas', 'regalos'], tipo: 'regalos', foto: 'flores', desc: 'Flores de tela hechas a mano que no se marchitan.', opciones: [['Flores', ['3', '6', '12'], { 3: 6500, 6: 9500, 12: 16000 }], ['Color', ['Amarillo', 'Rojo', 'Rosa', 'Blanco']]], precios: [[1, 6500]], disponible: true, temporadas: ['madre', 'navidad'] },
+  { id: 'tarjetas-regalo', nombre: 'Tarjetas para regalos', ocasion: ['fechas', 'regalos'], tipo: 'papeleria', ilus: 'tarjetas', desc: 'Tarjetitas impresas con mensaje para acompañar cada regalo.', precios: [[10, 450], [50, 350]], temporadas: ['madre', 'padre', 'navidad'] },
+  { id: 'etiquetas-escolares', nombre: 'Etiquetas escolares con nombre', ocasion: ['escolar'], tipo: 'stickers', ilus: 'etiqueta', persona: true, desc: 'Etiquetas resistentes para útiles, viandas y mochilas. Elegí color y dibujito.', opciones: [['Pack', ['30 etiquetas', '60 etiquetas', '90 etiquetas'], { '30 etiquetas': 6500, '60 etiquetas': 11000, '90 etiquetas': 15000 }]], precios: [[1, 6500]], unidad: 'el pack', top: true, temporadas: ['clases'] },
+  { id: 'stickers-utiles', nombre: 'Stickers para útiles', ocasion: ['escolar'], tipo: 'stickers', ilus: 'stickerlogo', desc: 'Plancha de stickers con nombre para lápices y cuadernos.', precios: [[20, 250], [50, 200]], nuevo: true, temporadas: ['clases'] },
+  { id: 'etiquetas-producto', nombre: 'Etiquetas para tus productos', ocasion: ['emprende'], tipo: 'stickers', foto: 'etiquetas', desc: 'Etiquetas adhesivas con tu marca y los datos del producto.', opciones: [['Forma', ['Redonda', 'Rectangular', 'A medida']], ['Material', ['Papel ilustración', 'Vinilo blanco', 'Vinilo transparente']]], precios: [[50, 280], [100, 220], [300, 170], [500, 140]], top: true },
+  { id: 'stickers-logo', nombre: 'Stickers con tu logo', ocasion: ['emprende'], tipo: 'stickers', ilus: 'stickerlogo', desc: 'Stickers troquelados con tu logo para el packaging.', opciones: [['Tamaño', ['4 cm', '6 cm', '8 cm']]], precios: [[50, 300], [100, 240], [300, 190]] },
+  { id: 'tarjetas-personales', nombre: 'Tarjetas personales', ocasion: ['emprende'], tipo: 'papeleria', ilus: 'tarjetas', desc: 'Tarjetas a todo color, en terminación mate o brillante.', opciones: [['Terminación', ['Mate', 'Brillante']]], precios: [[100, 95], [250, 80], [500, 65]] },
+  { id: 'logo', nombre: 'Diseño de logo', ocasion: ['emprende'], tipo: 'diseno', ilus: 'logo', desc: 'Logo, colores y versiones para redes de tu emprendimiento.', precios: [[1, 45000]], unidad: '' },
+  { id: 'rediseno', nombre: 'Rediseño de etiqueta', ocasion: ['emprende'], tipo: 'diseno', foto: 'rediseno', desc: 'Le damos otra presencia a la etiqueta que ya tenés.', precios: [[1, 18000]], unidad: '' },
+  { id: 'cartel-local', nombre: 'Cartel para tu local', ocasion: ['emprende'], tipo: 'deco', ilus: 'cartel', desc: 'Carteles y listas de precios para el mostrador o la vidriera.', opciones: [['Tamaño', ['A3', 'A2', '60 × 90 cm'], { A3: 12000, A2: 18000, '60 × 90 cm': 28000 }]], precios: [[1, 12000]] },
+  { id: 'vinilo-vidriera', nombre: 'Vinilo de corte para vidriera', ocasion: ['emprende'], tipo: 'vinilos', foto: 'vinilo', desc: 'Letras y diseños calados en vinilo para vidrieras y autos.', opciones: [['Color', ['Blanco', 'Negro', 'Rosa', 'Dorado']]], precios: [[1, 12000]], unidad: 'el m²' },
+  { id: 'stickers-holo', nombre: 'Stickers holográficos', ocasion: ['emprende', 'regalos'], tipo: 'vinilos', foto: 'holo', desc: 'Vinilo holográfico tornasolado, troquelado a la forma que quieras.', precios: [[20, 450], [50, 380], [100, 320]], nuevo: true },
+  { id: 'fotos', nombre: 'Fotos impresas', ocasion: ['fotos'], tipo: 'fotos', ilus: 'fotos', desc: 'Papel fotográfico en máxima calidad. Nos compartís el álbum y listo.', opciones: [['Tamaño', ['10 × 15', '13 × 18', '15 × 21', 'A4'], { '10 × 15': 500, '13 × 18': 900, '15 × 21': 1300, A4: 2500 }]], precios: [[1, 500]], top: true },
+  { id: 'polaroid', nombre: 'Fotos tipo polaroid', ocasion: ['fotos', 'regalos'], tipo: 'fotos', ilus: 'fotos', desc: 'Fotos con marco blanco, ideales para colgar o regalar.', precios: [[10, 700], [30, 600]], nuevo: true },
+  { id: 'remera-diseno', nombre: 'Remera con tu diseño', ocasion: ['regalos', 'emprende'], tipo: 'textil', foto: 'remera', desc: 'Remeras estampadas con tu diseño, frase o logo.', opciones: [['Talle', ['S', 'M', 'L', 'XL', 'XXL']]], precios: [[1, 13000], [10, 10500]], temporadas: ['padre'] },
+  { id: 'imanes', nombre: 'Imanes personalizados', ocasion: ['regalos', 'eventos'], tipo: 'regalos', ilus: 'iman', desc: 'Imanes con foto, nombre o fecha. Souvenir que queda en la heladera.', precios: [[10, 900], [30, 750], [50, 650]], tematica: true, temporadas: ['fin', 'padre'] },
+  { id: 'stickers-egresados', nombre: 'Stickers de egresados', ocasion: ['fechas', 'escolar'], tipo: 'stickers', ilus: 'stickerlogo', desc: 'Stickers con el nombre del curso y el año, también holográficos.', precios: [[20, 380], [50, 320]], nuevo: true, tematica: true, temporadas: ['fin'] },
+  { id: 'banderin-egresados', nombre: 'Banderín de egresados', ocasion: ['fechas', 'escolar'], tipo: 'deco', ilus: 'banderin', desc: 'Banderín con el nombre de la promo para la fiesta o la foto.', precios: [[1, 9500]], temporadas: ['fin'] },
+  { id: 'calendario', nombre: 'Calendario 2027 personalizado', ocasion: ['regalos', 'emprende'], tipo: 'papeleria', ilus: 'calendario', desc: 'Con tus fotos o con tu marca, para regalar o dar a tus clientes.', precios: [[1, 5500], [10, 4200], [50, 3300]], nuevo: true, temporadas: ['fin', 'navidad'] },
+  { id: 'etiquetas-navidad', nombre: 'Etiquetas navideñas para regalos', ocasion: ['fechas'], tipo: 'stickers', ilus: 'etiqueta', desc: 'Etiquetas con nombre para los regalos del arbolito.', precios: [[20, 250], [50, 200]], temporadas: ['navidad'] },
+];
+
+// Kits armados con precio cerrado
+export const KITS = [
+  { id: 'kit-cumple', nombre: 'Kit cumple', foto: 'bolsitas', desc: 'Invitación digital, banderín, topper y 20 bolsitas con stickers.', precio: 62000 },
+  { id: 'kit-egresados', nombre: 'Kit egresados', foto: 'holo', desc: 'Banderín de la promo, 30 stickers holográficos y cartel para la foto.', precio: 38000 },
+  { id: 'kit-emprende', nombre: 'Kit emprendedor', ilus: 'logo', desc: 'Logo, 100 etiquetas para tus productos y 100 tarjetas personales.', precio: 79000 },
+];
